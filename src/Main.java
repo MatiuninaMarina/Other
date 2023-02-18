@@ -38,10 +38,11 @@ public class Main {
 
         System.out.println("Ваша корзина покупок:");
         int sum = 0;
+        int bag = 0;
         for (int i = 0; i < products.length; i++) {
-            sum += prices[i] * counts[i];
+            bag += prices[i] * counts[i];
         }
-        boolean doBonus = sum >= MIN_COST_FOR_BONUS;
+        boolean doBonus = bag >= MIN_COST_FOR_BONUS;
         for (int i = 0; i < products.length; i++) {
             if (counts[i] != 0) {
                 boolean isOnSale = false;
@@ -56,7 +57,8 @@ public class Main {
                     sum += prices[i] * (counts[i] / 3 * 2 + counts[i] % 3);
                 } else {
                     System.out.println("\t" + products[i] + " " + count + " шт. за " + (prices[i] * counts[i]) + " руб.");
-                    sum += prices[i] * counts[i];
+
+                    sum += prices[i] * (counts[i]);
                 }
             }
         }
